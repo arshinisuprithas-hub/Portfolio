@@ -178,7 +178,7 @@ margin-bottom:15px;
 
 .hero-content h1{
 
-font-size:85px;
+font-size:65px;
 
 font-weight:800;
 
@@ -406,4 +406,54 @@ transform:translateY(-15px);
 transform:translateY(0);
 }
 
+}
+.section-title{
+text-align:center;
+font-size:40px;
+margin-bottom:40px;
+color:#c084fc;
+}
+
+.card{
+
+max-width:900px;
+
+margin:20px auto;
+
+padding:25px;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(168,85,247,.3);
+
+border-radius:20px;
+
+backdrop-filter:blur(10px);
+}
+
+.skills-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(200px,1fr));
+
+gap:20px;
+
+max-width:1000px;
+
+margin:auto;
+}
+
+.skill-card{
+
+padding:20px;
+
+text-align:center;
+
+background:rgba(255,255,255,.05);
+
+border-radius:15px;
+
+border:1px solid rgba(168,85,247,.3);
 }
