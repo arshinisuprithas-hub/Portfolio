@@ -1,13 +1,19 @@
-// Typing Animation
-
+// =====================
 // TYPING ANIMATION
+// =====================
 
 const words = [
-    "Aspiring Software Developer 💜",
-    "Cyber Security Student 🔐",
-    "Problem Solver 🧠",
-    "Web Development 🚀",
-    "Future Software Engineer ⚡"
+
+"Aspiring Software Developer 💻",
+
+"Cyber Security Student 🔐",
+
+"Problem Solver 🧠",
+
+"Tech Enthusiast 🚀",
+
+"Future Software Engineer ⚡"
+
 ];
 
 let wordIndex = 0;
@@ -18,131 +24,200 @@ const typing = document.getElementById("typing");
 
 function typeEffect() {
 
-    const currentWord = words[wordIndex];
+if(!typing) return;
 
-    if (!deleting) {
+const currentWord = words[wordIndex];
 
-        typing.textContent =
-            currentWord.substring(0, charIndex + 1);
+if(!deleting){
 
-        charIndex++;
+typing.textContent =
+currentWord.substring(0,charIndex+1);
 
-        if (charIndex === currentWord.length) {
+charIndex++;
 
-            deleting = true;
+if(charIndex === currentWord.length){
 
-            setTimeout(typeEffect, 1500);
+deleting = true;
 
-            return;
-        }
+setTimeout(typeEffect,1500);
 
-    } else {
+return;
+}
 
-        typing.textContent =
-            currentWord.substring(0, charIndex - 1);
+}
 
-        charIndex--;
+else{
 
-        if (charIndex === 0) {
+typing.textContent =
+currentWord.substring(0,charIndex-1);
 
-            deleting = false;
+charIndex--;
 
-            wordIndex++;
+if(charIndex===0){
 
-            if (wordIndex === words.length) {
-                wordIndex = 0;
-            }
-        }
-    }
+deleting=false;
 
-    setTimeout(typeEffect, deleting ? 50 : 100);
+wordIndex++;
+
+if(wordIndex===words.length){
+
+wordIndex=0;
+}
+
+}
+}
+
+setTimeout(typeEffect,deleting?50:100);
 }
 
 typeEffect();
 
-
-// AVATAR FOLLOW EFFECT
-
-const avatar = document.querySelector(".avatar-ring");
-
-document.addEventListener("mousemove", (e) => {
-
-    let x =
-        (window.innerWidth / 2 - e.clientX) / 40;
-
-    let y =
-        (window.innerHeight / 2 - e.clientY) / 40;
-
-    avatar.style.transform =
-        `translate(${x}px, ${y}px)`;
-});
-
-
+// =====================
 // ACTIVE NAVIGATION
+// =====================
 
 const sections =
-    document.querySelectorAll("section");
+document.querySelectorAll("section");
 
 const navLinks =
-    document.querySelectorAll("nav ul li a");
+document.querySelectorAll("nav ul li a");
 
-window.addEventListener("scroll", () => {
+window.addEventListener("scroll",()=>{
 
-    let current = "";
+let current="";
 
-    sections.forEach((section) => {
+sections.forEach(section=>{
 
-        const sectionTop = section.offsetTop;
+const sectionTop =
+section.offsetTop;
 
-        if (scrollY >= sectionTop - 200) {
+if(pageYOffset >= sectionTop-200){
 
-            current =
-                section.getAttribute("id");
-        }
-    });
+current =
+section.getAttribute("id");
+}
 
-    navLinks.forEach((link) => {
-
-        link.classList.remove("active");
-
-        if (
-            link.getAttribute("href")
-            === "#" + current
-        ) {
-
-            link.classList.add("active");
-        }
-    });
 });
 
+navLinks.forEach(link=>{
 
-// FADE IN ANIMATION
+link.classList.remove("active");
+
+if(
+link.getAttribute("href")
+=== "#" + current
+){
+
+link.classList.add("active");
+}
+
+});
+
+});
+
+// =====================
+// SCROLL REVEAL
+// =====================
 
 const observer =
-new IntersectionObserver((entries) => {
+new IntersectionObserver((entries)=>{
 
-    entries.forEach((entry) => {
+entries.forEach(entry=>{
 
-        if (entry.isIntersecting) {
+if(entry.isIntersecting){
 
-            entry.target.classList.add("show");
-        }
-    });
+entry.target.classList.add("show");
+}
+
+});
 
 });
 
 document
-.querySelectorAll("section")
-.forEach((el) => {
+.querySelectorAll(
+".glass-card,.skill-card,.timeline-item"
+)
+.forEach(el=>{
 
-    el.classList.add("hidden");
+el.classList.add("hidden");
 
-    observer.observe(el);
+observer.observe(el);
+
 });
 
+// =====================
+// FLOATING EMOJIS
+// =====================
 
-// CONSOLE MESSAGE 😎
+const emojis = [
+
+"🚀",
+"💻",
+"⚡",
+"🧠",
+"✨",
+"☕"
+
+];
+
+for(let i=0;i<10;i++){
+
+let emoji =
+document.createElement("div");
+
+emoji.className =
+"floating-emoji";
+
+emoji.innerHTML =
+emojis[
+Math.floor(
+Math.random()*emojis.length
+)
+];
+
+emoji.style.left =
+Math.random()*100 + "%";
+
+emoji.style.top =
+Math.random()*100 + "%";
+
+emoji.style.animationDuration =
+(5 + Math.random()*5) + "s";
+
+document.body.appendChild(emoji);
+
+}
+
+// =====================
+// SMOOTH SCROLL
+// =====================
+
+document
+.querySelectorAll('a[href^="#"]')
+.forEach(anchor=>{
+
+anchor.addEventListener(
+"click",
+function(e){
+
+e.preventDefault();
+
+document.querySelector(
+this.getAttribute("href")
+).scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+});
+
+});
+
+// =====================
+// CONSOLE MESSAGE
+// =====================
 
 console.log(
-"Welcome to Arshini's Portfolio 🚀💜"
+"🚀 Portfolio Loaded Successfully"
 );
