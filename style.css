@@ -78,7 +78,9 @@ font-weight:600;
 transition:.3s;
 }
 
-nav a:hover
+nav a:hover{
+color:#c084fc;
+}
 
 /* SIDEBAR */
 
@@ -106,8 +108,15 @@ z-index:999;
 }
 
 .social-sidebar a{
+width:50px;
+height:50px;
+display:flex;
+align-items:center;
+justify-content:center;
 color:white;
 font-size:24px;
+text-decoration:none;
+border-radius:12px;
 transition:.3s;
 }
 
@@ -137,7 +146,7 @@ margin-bottom:15px;
 }
 
 .hero-content h1{
-font-size:90px;
+font-size:75px;
 line-height:1.1;
 font-weight:800;
 }
@@ -190,6 +199,8 @@ box-shadow:
 .btn-outline{
 border:2px solid #8b5cf6;
 color:white;
+display:inline-block;
+background:transparent;
 }
 
 /* AVATAR */
@@ -220,12 +231,10 @@ box-shadow:
 .avatar-ring img{
 
 width:100%;
-
 height:100%;
-
 object-fit:cover;
-
 border-radius:50%;
+display:block;
 }
 
 /* SECTIONS */
@@ -373,6 +382,21 @@ grid-template-columns:
 repeat(auto-fit,minmax(300px,1fr));
 
 gap:25px;
+}
+
+.cert-card{
+
+background:rgba(255,255,255,.05);
+
+padding:30px;
+
+border-radius:20px;
+
+border:1px solid rgba(168,85,247,.3);
+
+text-align:center;
+
+transition:.3s;
 }
 
 /* PROFILES */
@@ -579,9 +603,22 @@ background:rgba(255,255,255,.05);
 border:1px solid rgba(168,85,247,.3);
 }
 #contact .glass-card{
+
 max-width:600px;
+
 margin:auto;
+
 text-align:center;
+
 font-size:22px;
+
 line-height:2;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
 }
